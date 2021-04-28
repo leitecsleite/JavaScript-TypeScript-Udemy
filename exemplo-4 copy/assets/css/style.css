@@ -71,3 +71,8 @@ form button:hover{
     background: var(--primary-color);
     padding: 20px 10px;
 }
+
+.invalido{
+    background: red; 
+    padding: 20px 10px; 
+}
