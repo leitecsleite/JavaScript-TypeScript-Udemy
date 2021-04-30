@@ -17,3 +17,5 @@ const elementos = [
  }
 
   resultado.appendChild(div); 
+
+  //document.createTextNode(); 
