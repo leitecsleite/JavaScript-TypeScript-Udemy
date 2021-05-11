@@ -10,4 +10,6 @@ const numeroPar = numeros.filter(n =>  {
     return resto === par; 
 })
 
-console.log(numeroPar); 
+console.log(numeroPar);
+
+//imprimir: [ 50, 80, 2, 8, 22 ]
