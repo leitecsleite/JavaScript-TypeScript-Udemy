@@ -21,11 +21,11 @@
  //Pessoa.prototype === pessoa1._Photo_
 
  Pessoa.prototype.nomeCompleto = function(){
-     return this.nome = ' ' + this.sobrenome; 
+     return this.nome + ' ' + this.sobrenome; 
  }; 
 
- const pessoa1 = new Pessoa ('Luiz', 'O'); 
+ const pessoa1 = new Pessoa ('Luiz', 'Leite'); 
  const pessoa2 = new Pessoa('Maria', 'A'); 
  const data = new Date();
  
- console.log(pessoa1)
+ console.log(pessoa1.nomeCompleto())
