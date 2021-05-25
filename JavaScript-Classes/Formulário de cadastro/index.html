@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+    <section class="container">
+        <h1>Formulário de Cadastro</h1>
+
+        <ul>
+            <li>Nenhum campo pode estar vazio</li>
+            <li>Usuário só poderá conter letras e/ou número</li>
+            <li>Usuário deverá ter entre 3 e 12 caracteres</li>
+            <li>Senha precisa ter entre 6 e 12 caracteres</li>
+        </ul>
+
+        <form action="/" method="POST" class="formulario">
+            <label for="">Nome</label>
+            <input type="text" class="nome validar" />
+
+            <label for="">Sobrenome</label>
+            <input type="text" class="sobrenome validar">
+
+            <label for="">CPF</label>
+            <input type="text" class="cpf validar">
+
+            <label for="">Usuário</label>
+            <input type="text" class="usuario validar">
+
+            <label for="">Senha</label>
+            <input type="password" class="senha validar">
+
+            <label for="">Repetir a senha </label>
+            <input type="password" class="repetirSenha validar">
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+
+    <script src="./assets/js/validaCPF.js"></script>
+    <script src="./assets/js/main.js"></script>
+
+</body>
+</html>
