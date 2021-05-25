@@ -14,6 +14,12 @@ class ValidaFormulario {
     handleSubmit(e){
         e.preventDefault();
         const camposValidos = this.camposSaoValidos(); 
+        const senhasValidas = this.senhasSaoValidas(); 
+
+        if(camposValidos && senhasValidas){
+            alert("Formulário enviado"); 
+            this.formulario.submit(); 
+        }
     }
 
     camposSaoValidos(){
@@ -40,6 +46,8 @@ class ValidaFormulario {
            }
 
         }
+
+      return  valid; 
     }
 
     validaUsuario(campo){
@@ -76,6 +84,28 @@ class ValidaFormulario {
         //insertAdjacentElement -> 
         campos.insertAdjacentElement('afterend', div); 
     }
+
+    senhasSaoValidas(){
+        let valid = true; 
+
+        const senha = this.formulario.querySelector('.senha'); 
+        const repetirSenha = this.formulario.querySelector('.repetirSenha'); 
+
+        if(senha.value !== repetirSenha.value){
+            valid = false; 
+            this.erro(senha, 'Campos senha e repetir senha precisar ser iguais'); 
+            this.erro(senha, 'Campos senha a repetir senha precisa ser iguais'); 
+        }
+
+        if(senha.value.length < 6 || senha.value.length > 12){
+            valid = false; 
+            this.erro(senha, "Senha precisa estar entre 6 e 12 caracteres.");
+        }
+
+        return valid; 
+    }
+
+
 }
 
 const valida = new ValidaFormulario();
