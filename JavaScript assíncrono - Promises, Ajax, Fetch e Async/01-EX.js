@@ -7,6 +7,8 @@ function rand(min, max){
 
 function esperaAi (msg, tempo){
     return new Promise((resolve, reject) => {
+        if(typeof msg !== 'string') reject('BAD VALUE'); 
+
         setTimeout(() => {
             resolve(msg);               
         }, tempo)
@@ -14,16 +16,22 @@ function esperaAi (msg, tempo){
 
 }
 
-esperaAi("frase 1", rand(1, 3))
+esperaAi("Conexão com a BD", rand(1, 3))
    .then(resposta => {
        console.log(resposta)
-       return esperaAi('Frase 2', rand(1,3)); 
+       return esperaAi('Buscando dados da Base', rand(1,3)); 
    })
    .then(resposta => {
        console.log(resposta)
-       return esperaAi('Finalizamos o processo', rand(1,3))
+       return esperaAi(2222, rand(1,3))
    })
    .then(resposta => {
        console.log(resposta)
    })
-   .catch(); 
+   .then(() => {
+       console.log('Exibe dados na tela'); 
+   }) 
+   //Tratando os erros 
+   .catch(e => {
+       console.log('ERRO: ', e); 
+   }); 
