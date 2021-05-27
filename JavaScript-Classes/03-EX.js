@@ -62,6 +62,7 @@ console.log(s1);
   }
 */
 
+
 const tablet1 = new Tablet('Samsung', true); 
 
 console.log(tablet1); 
