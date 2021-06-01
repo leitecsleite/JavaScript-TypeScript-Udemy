@@ -21,7 +21,7 @@ const request = obj => {
 
 document.addEventListener('click', e => {
     const el = e.target;
-    const tag = el.tagName.tolowerCase(); 
+    const tag = el.tagName.toLowerCase(); 
 
     if (tag === 'a'){
         e.preventDefault(); 
@@ -31,5 +31,21 @@ document.addEventListener('click', e => {
 
 function carregaPagina (el){
     const href = el.getAttribute('href'); 
-    console.log(href); 
+    console.log(href);
+    
+    request({
+        method:'GET', 
+        url: href, 
+        success(response){
+            carregaResultado(response); 
+        }, 
+        error(errorText){
+            console.log(errorText); 
+        }
+    }); 
+}
+
+ function carregaResultado(response){
+    const resultado = document.querySelector('.resultado');
+    resultado.innerHTML = response; 
 }
