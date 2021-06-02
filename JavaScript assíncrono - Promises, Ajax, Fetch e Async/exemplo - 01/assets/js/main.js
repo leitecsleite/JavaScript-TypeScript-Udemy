@@ -31,28 +31,42 @@ document.addEventListener('click', e => {
     }
 });
 
- async function carregaPagina(el) {
-    const href = el.getAttribute('href');
-    console.log(href);
+// async function carregaPagina(el) {
+//    const href = el.getAttribute('href');
+//    console.log(href);
 
-    const objConfig = {
-        method: 'GET', 
-        url: href, 
-    };  
+//    const objConfig = {
+//        method: 'GET', 
+//        url: href, 
+//    };  
 
-    try {
-    const  response = await request(objConfig);
-    carregaResultado(response);
-    } catch (e){
-        console.log(e); 
-    }
+//    try {
+//    const  response = await request(objConfig);
+//    carregaResultado(response);
+//    } catch (e){
+//        console.log(e); 
+//    }
 
     //request(objConfig).then(response => {
     //    carregaResultado(response); 
     //}).catch(error => {
     //  console.log(error); 
    // })
+//}
+
+
+
+
+function carregaPagina(el){
+    const href = el.getAttribute('href'); 
+
+    fetch(href)
+      .then(response => response.text())
+      .then(html => carregaResultado(html))
+      .catch(e => console.log(e)); 
 }
+
+
 
 function carregaResultado(response) {
     const resultado = document.querySelector('.resultado');
@@ -60,10 +74,10 @@ function carregaResultado(response) {
 } 
 
 
-fetch('pagina1.html')
-  .then(resposta => {
-      if(resposta.status !== 200 )  throw new Error('Erro 404 NOSSO'); 
-      return resposta.text(); 
-  })
-  .then(html => console.log(html))
-  .catch(e => console.log(e)); 
+//fetch('pagina1.html')
+//  .then(resposta => {
+//      if(resposta.status !== 200 )  throw new Error('Erro 404 NOSSO'); 
+//      return resposta.text(); 
+//  })
+//  .then(html => console.log(html))
+//  .catch(e => console.log(e)); 
