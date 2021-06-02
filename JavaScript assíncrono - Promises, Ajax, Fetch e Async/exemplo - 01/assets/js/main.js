@@ -57,13 +57,16 @@ document.addEventListener('click', e => {
 
 
 
-function carregaPagina(el){
-    const href = el.getAttribute('href'); 
-
-    fetch(href)
-      .then(response => response.text())
-      .then(html => carregaResultado(html))
-      .catch(e => console.log(e)); 
+async  function carregaPagina(el){
+    const href = el.getAttribute('href');
+    const response = await fetch(href); 
+    if(response.status !== 200) throw Error('ERRO 404!'); 
+    const html = await response.text(); 
+    carregaResultado(html);  
+//    fetch(href)
+//      .then(response => response.text())
+//      .then(html => carregaResultado(html))
+//      .catch(e => console.log(e)); 
 }
 
 
