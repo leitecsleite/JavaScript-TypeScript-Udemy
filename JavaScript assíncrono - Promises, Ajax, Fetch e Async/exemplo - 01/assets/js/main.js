@@ -1,24 +1,24 @@
 
 
-const request = obj => {
-    return new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-
-        xhr.open(obj.method, obj.url, true);
-        xhr.send();
-
-        xhr.addEventListener('load', () => {
-            if (xhr.status >= 200 && xhr.status < 300) {
-                resolve(xhr.responseText);
-            } else {
-                reject({
-                    code: xhr.status,
-                    msg: xhr.statusText
-                });
-            }
-        });
-    });
-};
+//const request = obj => {
+//    return new Promise((resolve, reject) => {
+//        const xhr = new XMLHttpRequest();
+//
+//        xhr.open(obj.method, obj.url, true);
+//        xhr.send();
+//
+//        xhr.addEventListener('load', () => {
+//            if (xhr.status >= 200 && xhr.status < 300) {
+//               resolve(xhr.responseText);
+//            } else {
+//                reject({
+//                    code: xhr.status,
+//                    msg: xhr.statusText
+//                });
+//            }
+//        });
+//    });
+//};
 
 
 document.addEventListener('click', e => {
@@ -57,4 +57,13 @@ document.addEventListener('click', e => {
 function carregaResultado(response) {
     const resultado = document.querySelector('.resultado');
     resultado.innerHTML = response;
-}
+} 
+
+
+fetch('pagina1.html')
+  .then(resposta => {
+      if(resposta.status !== 200 )  throw new Error('Erro 404 NOSSO'); 
+      return resposta.text(); 
+  })
+  .then(html => console.log(html))
+  .catch(e => console.log(e)); 
