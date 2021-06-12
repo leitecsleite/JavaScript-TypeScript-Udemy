@@ -33,6 +33,27 @@ const userRouter = (app) => {
 
            res.status(201).send('OK')
        })
+       .put((req,res)=> {
+           const users = getUsers(); 
+
+           saveUsers(users.map (users => {
+               if(users.id == req.params.id ){
+                   return {
+                       user, 
+                       
+                   }
+               }
+               return user 
+           }))
+           res.status(200).send('OK');
+       })
+       .delete((req, res) => {
+           const users = getUsers(); 
+
+           saveUsers(users.filter (user => user.id !== req.params.id))
+
+           res.status(200).send('ok')
+       })
 }
 
 module.exports = userRouter; 
