@@ -1,4 +1,3 @@
+const multiplicacao = require('./mod1'); 
 
-const falaNome = require('./mod1').falaNome;
-//const mod1 = require('./mod1'); 
-console.log(falaNome()); 
+console.log(multiplicacao(2,3)); 
